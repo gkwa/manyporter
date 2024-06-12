@@ -1,7 +1,10 @@
 # manyporter
 
 Purpose:
+Use goldmark to fetch markdown frontmatter as json.
 
+Motivation:
+Feed my markdown notes into [quickwit](https://quickwit.io/)
 
 ## example usage
 
@@ -28,3 +31,9 @@ on windows:
 TBD
 
 ```
+
+
+## Links
+
+- https://quickwit.io/
+- https://github.com/yuin/goldmark?tab=readme-ov-file#goldmark
