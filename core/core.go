@@ -41,8 +41,6 @@ func convertMap(data map[string]interface{}) map[string]interface{} {
 		switch value := v.(type) {
 		case map[interface{}]interface{}:
 			converted[k] = convertInterfaceMap(value)
-		case map[string]interface{}:
-			converted[k] = convertMap(value)
 		default:
 			converted[k] = v
 		}
@@ -53,14 +51,7 @@ func convertMap(data map[string]interface{}) map[string]interface{} {
 func convertInterfaceMap(data map[interface{}]interface{}) map[string]interface{} {
 	converted := make(map[string]interface{})
 	for k, v := range data {
-		switch value := v.(type) {
-		case map[interface{}]interface{}:
-			converted[fmt.Sprintf("%v", k)] = convertInterfaceMap(value)
-		case map[string]interface{}:
-			converted[fmt.Sprintf("%v", k)] = convertMap(value)
-		default:
-			converted[fmt.Sprintf("%v", k)] = v
-		}
+		converted[fmt.Sprintf("%v", k)] = v
 	}
 	return converted
 }
