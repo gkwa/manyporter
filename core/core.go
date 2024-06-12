@@ -55,11 +55,14 @@ func convertInterfaceMap(data map[interface{}]interface{}) map[string]interface{
 	for k, v := range data {
 		switch value := v.(type) {
 		case map[interface{}]interface{}:
-			converted[fmt.Sprintf("%v", k)] = convertInterfaceMap(value)
+			x := fmt.Sprintf("%v", k)
+			converted[x] = convertInterfaceMap(value)
 		case map[string]interface{}:
-			converted[fmt.Sprintf("%v", k)] = convertMap(value)
+			x := fmt.Sprintf("%v", k)
+			converted[x] = convertMap(value)
 		default:
-			converted[fmt.Sprintf("%v", k)] = v
+			x := fmt.Sprintf("%v", k)
+			converted[x] = v
 		}
 	}
 	return converted

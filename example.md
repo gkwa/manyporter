@@ -2,8 +2,11 @@
 filetype: product
 x:
     z:
-        n:
+        "n":
             p: 10
----
+            z:
+            - test
+            - 2
+--- 
 
 # Example
