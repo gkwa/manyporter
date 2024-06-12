@@ -6,7 +6,7 @@ Use goldmark to fetch markdown frontmatter as json.
 Motivation:
 Feed my markdown notes into [quickwit](https://quickwit.io/)
 
-## 
+## Why do i need this
 
 
 ```bash
