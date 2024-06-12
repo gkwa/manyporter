@@ -14,7 +14,7 @@ import (
 func Run() {
 	var mapData map[string]interface{}
 
-	filename := "test1/example.md"
+	filename := "test3/example.md"
 	markdownBytes, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
@@ -29,7 +29,7 @@ func Run() {
 	// Convert map to json string
 	jsonStr, err := json.MarshalIndent(mapData, "", "  ")
 	if err != nil {
-		err1 := fmt.Errorf("MarshalIndent failed %w", err)
+		err1 := fmt.Errorf("marshalIndent failed: %w", err)
 		fmt.Println(err1)
 		return
 	}

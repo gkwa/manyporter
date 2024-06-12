@@ -22,7 +22,8 @@ func Run() {
 	// Convert map to json string
 	jsonStr, err := json.MarshalIndent(mapData, "", "  ")
 	if err != nil {
-		fmt.Println(err)
+		err1 := fmt.Errorf("marshalIndent failed: %w", err)
+		fmt.Println(err1)
 	}
 
 	// Output
