@@ -1,7 +1,9 @@
 ---
 filetype: product
 x:
-    z: 999
+    z:
+        n: 1
+            p: 10
 ---
 
 # Example
