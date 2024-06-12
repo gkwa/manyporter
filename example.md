@@ -2,7 +2,7 @@
 filetype: product
 x:
     z:
-        n: 1
+        n:
             p: 10
 ---
 
