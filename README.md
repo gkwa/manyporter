@@ -9,7 +9,7 @@ Feed my markdown notes into [quickwit](https://quickwit.io/)
 ## example usage
 
 ```bash
-
+make && ./manyporter run
 
 ```
 

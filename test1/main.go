@@ -1,4 +1,4 @@
-package core
+package test1
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ import (
 )
 
 func Run() {
-	filename := "example.md"
+	filename := "test1/example.md"
 	markdownBytes, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
