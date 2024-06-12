@@ -35,35 +35,22 @@ func Run() {
 	fmt.Println(string(jsonBytes))
 }
 
-func convertMap(data map[string]interface{}) map[string]interface{} {
-	converted := make(map[string]interface{})
-	for k, v := range data {
-		switch value := v.(type) {
-		case map[interface{}]interface{}:
-			converted[k] = convertInterfaceMap(value)
-		case map[string]interface{}:
-			converted[k] = convertMap(value)
-		default:
-			converted[k] = v
+func convertMap(data interface{}) interface{} {
+	switch value := data.(type) {
+	case map[string]interface{}:
+		converted := make(map[string]interface{})
+		for k, v := range value {
+			converted[k] = convertMap(v)
 		}
-	}
-	return converted
-}
-
-func convertInterfaceMap(data map[interface{}]interface{}) map[string]interface{} {
-	converted := make(map[string]interface{})
-	for k, v := range data {
-		switch value := v.(type) {
-		case map[interface{}]interface{}:
-			x := fmt.Sprintf("%v", k)
-			converted[x] = convertInterfaceMap(value)
-		case map[string]interface{}:
-			x := fmt.Sprintf("%v", k)
-			converted[x] = convertMap(value)
-		default:
-			x := fmt.Sprintf("%v", k)
-			converted[x] = v
+		return converted
+	case map[interface{}]interface{}:
+		converted := make(map[string]interface{})
+		for k, v := range value {
+			strKey := fmt.Sprintf("%v", k)
+			converted[strKey] = convertMap(v)
 		}
+		return converted
+	default:
+		return data
 	}
-	return converted
 }
